@@ -30,7 +30,7 @@ const createQuotes = async (req,res) =>{
 const getQuote = async (req,res) =>{
     try{
         const quote = await prisma.quote.findUnique({
-            where:{id:NUmber(req.params.id)},
+            where:{id:Number(req.params.id)},
             include:{author:true}
         })
         if(quote){
@@ -47,7 +47,7 @@ const getQuote = async (req,res) =>{
 const updateQuote = async (req,res) =>{
     try{
         const quote = await prisma.quote.update({
-            where:{id:NUmber(req.params.id)},
+            where:{id:Number(req.params.id)},
             data:req.body
         })
         if(quote){
@@ -64,7 +64,7 @@ const updateQuote = async (req,res) =>{
 const deleteQuote = async (req,res) =>{
     try{
         const quote = await prisma.quote.delete({
-            where:{id:NUmber(req.params.id)},
+            where:{id:Number(req.params.id)},
         })
         if(quote){
             res.status(200).json(quote)
